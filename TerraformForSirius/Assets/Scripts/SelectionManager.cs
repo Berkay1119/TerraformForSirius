@@ -19,4 +19,15 @@ public class SelectionManager : MonoBehaviour
     {
         _selectedCard = x;
     }
+
+    public bool AreThereAnySelectedCard()
+    {
+        return _selectedCard != null;
+    }
+
+    public void PlaceCard(HexagonalGrid hexagonalGrid)
+    {
+        _selectedCard.Play(hexagonalGrid);
+        hexagonalGrid.FulFillTheArea(_selectedCard);
+    }
 }

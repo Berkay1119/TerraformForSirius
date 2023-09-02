@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class HexagonalCard : MonoBehaviour
 {
-    [ShowInInspector] private string name;
-    [ShowInInspector] private Sprite sprite;
-    [ShowInInspector] private Resources ConstructionRequirement;
-    [ShowInInspector] private Resources OperationalRequirement;
-    [ShowInInspector] private Resources OutcomeResources;
-    [ShowInInspector] private int barrier;
+    [ShowInInspector] private string _name;
+    [ShowInInspector] private Sprite _sprite;
+    [ShowInInspector] private Resources _constructionRequirement;
+    [ShowInInspector] private Resources _operationalRequirement;
+    [ShowInInspector] private Resources _outcomeResources;
+    [ShowInInspector] private int _barrier;
+    private HexagonalGrid _assignedGrid;
 
     private void OnMouseDown()
     {
@@ -20,11 +21,18 @@ public class HexagonalCard : MonoBehaviour
 
     public void AssignData(CardDataSO cardDataSo)
     {
-        this.name = cardDataSo.name;
-        this.sprite = cardDataSo.sprite;
-        this.ConstructionRequirement = cardDataSo.ConstructionRequirement;
-        this.OperationalRequirement = cardDataSo.OperationalRequirement;
-        this.OutcomeResources = cardDataSo.OutcomeResources;
-        this.barrier = cardDataSo.barrier;
+        this._name = cardDataSo.name;
+        this._sprite = cardDataSo.sprite;
+        this._constructionRequirement = cardDataSo.ConstructionRequirement;
+        this._operationalRequirement = cardDataSo.OperationalRequirement;
+        this._outcomeResources = cardDataSo.OutcomeResources;
+        this._barrier = cardDataSo.barrier;
+    }
+
+    public void Play(HexagonalGrid hexagonalGrid)
+    {
+        transform.position = hexagonalGrid.transform.position;
+        EventManager.OnConsumeResource(_constructionRequirement);
+        _assignedGrid = hexagonalGrid;
     }
 }
