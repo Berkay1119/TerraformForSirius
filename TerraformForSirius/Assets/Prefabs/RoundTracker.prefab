@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentResources:
-    Food: 10
-    Water: 10
-    Mine: 10
-    Population: 10
-    PlanetHealth: 10
+    Food: 25
+    Water: 25
+    Mine: 25
+    Population: 25
+    PlanetHealth: 25
+    Kadir: 10
+  maxKadir: 10

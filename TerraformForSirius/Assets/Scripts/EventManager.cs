@@ -2,14 +2,21 @@
 
 public static class EventManager
 {
-    public delegate void CardSelectedEvent(HexagonalCard x);
-    public delegate void CardPlayedEvent(HexagonalCard x);
+    public delegate void CardEvent(HexagonalCard x);
+    public delegate void ResourceEvent(Resources x);
+    public delegate void IntEvent(int x);
+    public delegate void FloatEvent(float x);
     public delegate void SoundEffectEvent(SoundEffectTypes soundEffect);
-    public delegate void ConsumeResourceEvent(Resources x);
-    public static event CardSelectedEvent CardSelected;
-    public static event CardPlayedEvent CardPlayed;
-    public static event ConsumeResourceEvent ConsumeResource;
+    public static event CardEvent CardSelected;
+    public static event CardEvent CardPlayed;
+    public static event ResourceEvent ConsumeResource;
+    public static event IntEvent AvailablePopulationChanged;
+    public static event FloatEvent AvailableKadirChanged;
+    public static event ResourceEvent GenerateResources;
+    public static event ResourceEvent AdjustTileControlUI;
+    public static event Action NextTurn;
     public static event SoundEffectEvent SoundEffect;
+
 
     public static void OnCardSelected(HexagonalCard x)
     {
@@ -28,6 +35,30 @@ public static class EventManager
         ConsumeResource?.Invoke(x);
     }
 
+    public static void OnAvailablePopulationChanged(int x)
+    {
+        AvailablePopulationChanged?.Invoke(x);
+    }
+
+    public static void OnAvailableKadirChanges(int x)
+    {
+        AvailableKadirChanged?.Invoke(x);
+    }
+
+    public static void OnGenerateResources(Resources x)
+    {
+        GenerateResources?.Invoke(x);
+    }
+
+    public static void OnAdjustTileControlUI(Resources x)
+    {
+        AdjustTileControlUI?.Invoke(x);
+    }
+
+    public static void OnNextTurn()
+    {
+        NextTurn?.Invoke();
+    }
 }
 
 public enum SoundEffectTypes
