@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bd3c9d851224679b102269890f92967, type: 3}
-  m_Name: Mine
+  m_Name: WaterWell
   m_EditorClassIdentifier: 
   isProtector: 0
-  cardName: Mine
-  sprite: {fileID: 21300000, guid: da059c361d742014d861002c5c492c7f, type: 3}
+  cardName: Water Well
+  sprite: {fileID: 21300000, guid: b1317e835a37b8d45a5655afb32d01be, type: 3}
   ConstructionRequirement:
-    Food: 5
-    Water: 5
-    Mine: 0
+    Food: 2
+    Water: 2
+    Mine: 3
     Population: 0
     PlanetHealth: 0
   OperationalRequirement:
     Food: 2
-    Water: 2
-    Mine: 0
-    Population: 5
+    Water: 0
+    Mine: 1
+    Population: 0
     PlanetHealth: 0
   OutcomeResources:
     Food: 0
-    Water: 0
-    Mine: 5
-    Population: 1
-    PlanetHealth: -2
+    Water: 5
+    Mine: 0
+    Population: 0
+    PlanetHealth: 0
   barrier: 0

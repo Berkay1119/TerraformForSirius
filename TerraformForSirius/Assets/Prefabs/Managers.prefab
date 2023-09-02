@@ -33,6 +33,7 @@ Transform:
   - {fileID: 7705931862431469624}
   - {fileID: 7650298434449271665}
   - {fileID: 1920575932625134867}
+  - {fileID: 2190255701969200074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &652943479482209094
@@ -158,10 +159,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68660c8f6f9bcc846996cac69d6088e8, type: 3}
+--- !u!114 &31602397434325170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1589576598692534403, guid: 68660c8f6f9bcc846996cac69d6088e8, type: 3}
+  m_PrefabInstance: {fileID: 1621024596076015665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730e19070e1bcc44a9391c8a44292cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7705931862431469624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8975658094816108553, guid: 68660c8f6f9bcc846996cac69d6088e8, type: 3}
   m_PrefabInstance: {fileID: 1621024596076015665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3417893678252447925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 863172550058529706}
+    m_Modifications:
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832605742137605942, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: m_Name
+      value: CardSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049948540432568759, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+      propertyPath: cardGenerator
+      value: 
+      objectReference: {fileID: 31602397434325170}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+--- !u!4 &2190255701969200074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3534083009557805951, guid: 74e131881970b164da2f08b36f7f1238, type: 3}
+  m_PrefabInstance: {fileID: 3417893678252447925}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4333645605469750094
 PrefabInstance:

@@ -38,7 +38,9 @@ public class HexagonalCard : MonoBehaviour
     {
         transform.position = hexagonalGrid.transform.position;
         EventManager.OnConsumeResource(_constructionRequirement);
+        EventManager.OnCardPlayed(this);
         _assignedGrid = hexagonalGrid;
+
     }
 
     private bool IsCardPlaced()
