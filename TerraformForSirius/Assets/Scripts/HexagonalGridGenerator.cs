@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -25,7 +26,7 @@ public class HexagonalGridGenerator : MonoBehaviour
                 {
                     HexagonalGrid currentGrid = Instantiate(hexagonalGridPrefab).GetComponent<HexagonalGrid>();
                     Vector3 startingLocation = startingColumnNumber == 1 ? new Vector3(1.5f, -Mathf.Sqrt(3) / 2, 0) : Vector3.zero;
-                    currentGrid.transform.position = startingLocation + new Vector3(j*outerCircleRadius*Mathf.Sqrt(3), i*outerCircleRadius*3, 0);
+                    currentGrid.transform.position = startingLocation + new Vector3((i/2)*outerCircleRadius*3f,j*outerCircleRadius*Mathf.Sqrt(3), 0);
                     HexagonalCoordinates currentCoordinate = new HexagonalCoordinates(i, j);
                     _hexagonalCoordinatesMap.Add(currentGrid,currentCoordinate);
                     currentGrid.AssignCoordinate(currentCoordinate);
@@ -39,6 +40,7 @@ public class HexagonalGridGenerator : MonoBehaviour
 }
 
 
+[Serializable]
 public class HexagonalCoordinates
 {
     public int X;

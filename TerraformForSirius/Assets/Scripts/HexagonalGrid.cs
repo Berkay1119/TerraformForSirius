@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 public class HexagonalGrid:MonoBehaviour
 {
-    private HexagonalCoordinates _assignedCoordinate;
+    [ShowInInspector]private HexagonalCoordinates _assignedCoordinate;
 
     public void AssignCoordinate(HexagonalCoordinates coordinates)
     {
