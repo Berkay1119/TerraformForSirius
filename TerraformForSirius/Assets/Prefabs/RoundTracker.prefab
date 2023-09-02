@@ -50,3 +50,5 @@ MonoBehaviour:
     Mine: 10
     Population: 10
     PlanetHealth: 10
+    Kadir: 10
+  maxKadir: 10

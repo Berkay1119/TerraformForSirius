@@ -13,7 +13,7 @@ public class CardGenerator : MonoBehaviour
     
     private CardDataSO GetRandomCardData()
     {
-        int randomIndex = Random.Range(0, _cardData.Count);
+        int randomIndex = Random.Range(0, 1);
         return _cardData[randomIndex];
     }
 

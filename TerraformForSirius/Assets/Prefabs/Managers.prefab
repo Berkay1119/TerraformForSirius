@@ -85,6 +85,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4456974861327633881, guid: 335f7785b66710d4694401cb73b57f1a, type: 3}
+      propertyPath: rowCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456974861327633881, guid: 335f7785b66710d4694401cb73b57f1a, type: 3}
       propertyPath: selectionManager
       value: 
       objectReference: {fileID: 4945894335383926940}
@@ -249,6 +253,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863172550058529706}
     m_Modifications:
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Food
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Mine
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Water
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Population
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.PlanetHealth
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6201283320859748415, guid: 7544158a85f29be49abda358deed51b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
