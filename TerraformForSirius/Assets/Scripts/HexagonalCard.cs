@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class HexagonalCard : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class HexagonalCard : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (IsCardPlaced())
+        {
+            return;    
+        }
         EventManager.OnCardSelected(this);
     }
 
@@ -34,5 +39,15 @@ public class HexagonalCard : MonoBehaviour
         transform.position = hexagonalGrid.transform.position;
         EventManager.OnConsumeResource(_constructionRequirement);
         _assignedGrid = hexagonalGrid;
+    }
+
+    private bool IsCardPlaced()
+    {
+        return _assignedGrid != null;
+    }
+    
+    public Resources GetResources()
+    {
+        return _constructionRequirement;
     }
 }

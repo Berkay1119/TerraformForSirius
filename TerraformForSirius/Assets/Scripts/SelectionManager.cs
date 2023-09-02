@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 public class SelectionManager : MonoBehaviour
 {
     private HexagonalCard _selectedCard;
-
+    [SerializeField] private RoundTracker roundTracker;
 
     private void OnEnable()
     {
@@ -29,5 +31,11 @@ public class SelectionManager : MonoBehaviour
     {
         _selectedCard.Play(hexagonalGrid);
         hexagonalGrid.FulFillTheArea(_selectedCard);
+        _selectedCard = null;
+    }
+
+    public bool AreThereEnoughResources()
+    {
+        return roundTracker.AreConditionsSufficient(_selectedCard.GetResources());
     }
 }

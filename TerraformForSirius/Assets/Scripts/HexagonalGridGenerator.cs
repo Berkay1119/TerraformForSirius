@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HexagonalGridGenerator : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HexagonalGridGenerator : MonoBehaviour
     [SerializeField] private int columnCount;
     [SerializeField] private GameObject hexagonalGridPrefab;
     [SerializeField] private float outerCircleRadius;
+    [SerializeField] private SelectionManager selectionManager;
 
     private Dictionary<HexagonalGrid, HexagonalCoordinates> _hexagonalCoordinatesMap =
         new Dictionary<HexagonalGrid, HexagonalCoordinates>();
@@ -30,6 +32,7 @@ public class HexagonalGridGenerator : MonoBehaviour
                     HexagonalCoordinates currentCoordinate = new HexagonalCoordinates(i, j);
                     _hexagonalCoordinatesMap.Add(currentGrid,currentCoordinate);
                     currentGrid.AssignCoordinate(currentCoordinate);
+                    currentGrid.AssignSelectionManager(selectionManager);
                 }
             }
         }
@@ -50,13 +53,6 @@ public class HexagonalCoordinates
     {
         this.X = x;
         this.Y = y;
-    }
-
-    public override bool Equals(object obj)
-    {
-        //NeedT
-        return base.Equals(obj);
-        
     }
 }
 

@@ -11,12 +11,23 @@ public class HexagonalGrid:MonoBehaviour
     public void AssignCoordinate(HexagonalCoordinates coordinates)
     {
         _assignedCoordinate = coordinates;
+        
+    }
+
+    public void AssignSelectionManager(SelectionManager selectionManager)
+    {
+        _selectionManager = selectionManager;
     }
 
     private void OnMouseDown()
     {
+        
         if (_selectionManager.AreThereAnySelectedCard())
         {
+            if (!_selectionManager.AreThereEnoughResources())
+            {
+                return;
+            }
             _selectionManager.PlaceCard(this);
         }
     }

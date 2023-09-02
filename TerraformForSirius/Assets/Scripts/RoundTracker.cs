@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class RoundTracker:MonoBehaviour
 {
-    private Resources currentResources;
+    [SerializeField] private Resources currentResources;
     private int roundCount;
 
     private void OnEnable()
@@ -20,5 +20,10 @@ public class RoundTracker:MonoBehaviour
     {
         currentResources.Consume(resources);
     }
-    
+
+
+    public bool AreConditionsSufficient(Resources resources)
+    {
+        return currentResources.IsGreaterThan(resources);
+    }
 }
