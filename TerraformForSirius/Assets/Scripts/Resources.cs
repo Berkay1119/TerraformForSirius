@@ -15,8 +15,8 @@ public class Resources
         Food -= resources.Food;
         Water -= resources.Water;
         Mine -= resources.Mine;
-        Population -= resources.Population;
-        PlanetHealth -= resources.PlanetHealth;
+        //Population -= resources.Population;
+        //PlanetHealth -= resources.PlanetHealth;
     }
 
     public bool IsGreaterThan(Resources resources)
