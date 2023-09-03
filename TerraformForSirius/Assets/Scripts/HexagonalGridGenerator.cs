@@ -16,6 +16,19 @@ public class HexagonalGridGenerator : MonoBehaviour
     private Dictionary<HexagonalGrid, HexagonalCoordinates> _hexagonalCoordinatesMap =
         new Dictionary<HexagonalGrid, HexagonalCoordinates>();
     
+    private Dictionary<HexagonalCoordinates, HexagonalGrid> _hexagonalCoordinatesMapReverse =
+        new Dictionary<HexagonalCoordinates, HexagonalGrid>();
+
+    private void OnEnable()
+    {
+        EventManager.CardPlayed += AffectAdjacentTiles;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.CardPlayed -= AffectAdjacentTiles;
+    }
+
     [Button]
     private void GenerateGrids()
     {
@@ -39,6 +52,11 @@ public class HexagonalGridGenerator : MonoBehaviour
         
         Generate(0);
         Generate(1);
+
+        foreach (var pair in _hexagonalCoordinatesMap)
+        {
+            _hexagonalCoordinatesMapReverse.Add(pair.Value,pair.Key);
+        }
     }
 
     public List<HexagonalGrid> GetEdgeTileList()
@@ -54,6 +72,74 @@ public class HexagonalGridGenerator : MonoBehaviour
         }
         return list;
     }
+
+    private void AffectAdjacentTiles(HexagonalCard hexagonalCard)
+    {
+        List<HexagonalCard> adjacentGrids = new List<HexagonalCard>();
+        List<Tuple<int, int>> adjacentCoordinateDifferences = new List<Tuple<int, int>>
+        {
+            new(0,-1),
+            new(1,0),
+            new(1,1),
+            new(0,1),
+            new(-1,1),
+            new(-1,0)
+            
+        };
+        HexagonalCoordinates currentCoordinates=_hexagonalCoordinatesMap[hexagonalCard.GetAssignedGrid()];
+
+        foreach (var tuple in adjacentCoordinateDifferences)
+        {
+            foreach (var pair in _hexagonalCoordinatesMapReverse)
+            {
+                if (pair.Key.X==new HexagonalCoordinates(currentCoordinates.X+tuple.Item1,currentCoordinates.Y+tuple.Item2).X)
+                {
+                    if (pair.Key.Y==new HexagonalCoordinates(currentCoordinates.X+tuple.Item1,currentCoordinates.Y+tuple.Item2).Y)
+                    {
+                        adjacentGrids.Add(pair.Value.GetPlacedCard());
+                    }
+                    
+                }
+            }
+            
+        }
+
+        foreach (var card in adjacentGrids)
+        {
+            if (card==null)
+            {
+                continue;
+            }
+
+            if (hexagonalCard.GetTilesToGiveBonus().Contains(card.GetCardType()))
+            {
+                card.bonusCount++;
+            }
+
+            if (hexagonalCard.typesToGiveNegative.Contains(card.GetCardType()))
+            {
+                card.bonusCount--;
+            }
+        }
+        
+        foreach (var card in adjacentGrids)
+        {
+            if (card==null)
+            {
+                continue;
+            }
+
+            if (hexagonalCard.GetTilesToTakeBonus().Contains(card.GetCardType()))
+            {
+                hexagonalCard.bonusCount++;
+            }
+
+            if (hexagonalCard.typesToGiveNegative.Contains(card.GetCardType()))
+            {
+                hexagonalCard.bonusCount--;
+            }
+        }
+    }
 }
 
 
@@ -68,5 +154,16 @@ public class HexagonalCoordinates
         this.X = x;
         this.Y = y;
     }
+
+    public override bool Equals(object o)
+    {
+        if (X==(((HexagonalCoordinates)o)!).X && Y==(((HexagonalCoordinates)o)!).Y )
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
 
