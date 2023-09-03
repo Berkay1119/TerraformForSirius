@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isProtector: 1
   cardType: 3
-  typesToGiveBonus: 
-  typesToTakeBonus: 
-  typesToGiveNegative: 
-  typesToTakeNegative: 
+  typesToGiveBonus: 01000000
+  typesToTakeBonus: 01000000
+  typesToGiveNegative: 00000000
+  typesToTakeNegative: 04000000
   sprites:
   - {fileID: 2128743073, guid: fb7674f124b12694db71820b564b76b8, type: 3}
   - {fileID: -1305335252, guid: 42f4a796b8e43034d8e8f8385a1bb998, type: 3}
@@ -35,7 +35,7 @@ MonoBehaviour:
     Mine: 0
     Population: 5
     PlanetHealth: 0
-    Kadir: 0
+    Kadir: 1
   OutcomeResources:
     Food: 0
     Water: 0
@@ -43,5 +43,5 @@ MonoBehaviour:
     Population: 0
     PlanetHealth: 0
     Kadir: 0
-  startingBarrier: 0
-  perRoundBarrier: 0
+  startingBarrier: 5
+  perRoundBarrier: 3

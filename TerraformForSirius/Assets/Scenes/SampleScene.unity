@@ -509,6 +509,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: maxKadir
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.Food
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.Mine
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.Kadir
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.Water
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.Population
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+      propertyPath: currentResources.PlanetHealth
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8879979515019224102, guid: 59c990439be06434a84077bad2d0466e, type: 3}
       propertyPath: winPanel
       value: 
@@ -522,6 +550,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+--- !u!114 &650000770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8817312920049135491, guid: 59c990439be06434a84077bad2d0466e, type: 3}
+  m_PrefabInstance: {fileID: 650000769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ac0bf414e14271af98c2b3173fe458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1008727807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5392467084330601859, guid: 15b7d5d3eb9f1b34199538ecbe4e5e87, type: 3}
@@ -760,6 +799,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8160405224361675333, guid: 15b7d5d3eb9f1b34199538ecbe4e5e87, type: 3}
+      propertyPath: _roundTracker
+      value: 
+      objectReference: {fileID: 650000770}
     - target: {fileID: 8941099938880647630, guid: 15b7d5d3eb9f1b34199538ecbe4e5e87, type: 3}
       propertyPath: m_Name
       value: Canvas

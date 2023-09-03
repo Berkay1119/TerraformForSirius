@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: GreenHouse
   m_EditorClassIdentifier: 
   isProtector: 0
-  cardType: 0
-  typesToGiveBonus: 
-  typesToTakeBonus: 
+  cardType: 2
+  typesToGiveBonus: 00000000
+  typesToTakeBonus: 0000000002000000
   typesToGiveNegative: 
-  typesToTakeNegative: 
+  typesToTakeNegative: 01000000
   sprites:
   - {fileID: 916764041, guid: fb7674f124b12694db71820b564b76b8, type: 3}
   - {fileID: -799230944, guid: 42f4a796b8e43034d8e8f8385a1bb998, type: 3}
@@ -35,13 +35,13 @@ MonoBehaviour:
     Mine: 0
     Population: 5
     PlanetHealth: 0
-    Kadir: 0
+    Kadir: 1
   OutcomeResources:
     Food: 5
     Water: 0
     Mine: 0
     Population: 1
-    PlanetHealth: 1
+    PlanetHealth: 2
     Kadir: 0
   startingBarrier: 0
   perRoundBarrier: 0
