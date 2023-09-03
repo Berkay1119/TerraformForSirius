@@ -57,7 +57,7 @@ public class RoundTracker:MonoBehaviour
         {
             if (alienInfo.round==_roundCount)
             {
-                EventManager.AlliensAreComing(alienInfo);
+                EventManager.AliensAreComing(alienInfo);
             }
         }
         _roundCount++;
