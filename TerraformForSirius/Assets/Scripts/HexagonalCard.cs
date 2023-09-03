@@ -46,6 +46,10 @@ public class HexagonalCard : MonoBehaviour
             {
                 if (_selectionManager.GetSelectedCard()._name==_name)
                 {
+                    if (_level==3)
+                    {
+                        return;
+                    }
                     Upgrade();
                     Destroy(_selectionManager.GetSelectedCard());
                     return;
@@ -81,7 +85,7 @@ public class HexagonalCard : MonoBehaviour
 
     private void Upgrade()
     {
-        _level = 2;
+        _level += 1;
         spriteRenderer.sprite = _sprites[_level-1];
         _outcomeResources.Multiply(_level);
     }

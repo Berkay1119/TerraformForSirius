@@ -47,5 +47,6 @@ MonoBehaviour:
   alienPrefab: {fileID: 8029393247979252690, guid: c4cb8dda32072a3408f5ec462d594ac4, type: 3}
   hexagonalGridGenerator: {fileID: 0}
   poolCount: 30
-  offSetFromTile: 3
-  alienSpeed: 3
+  offSetFromTile: 15
+  alienSpeed: 5
+  timeBetweenShips: 0.3
