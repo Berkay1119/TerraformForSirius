@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138570516853635635}
   - component: {fileID: 8587823768531631328}
+  - component: {fileID: 4596612960240493296}
   m_Layer: 0
   m_Name: siri
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 18.08, z: -0.5322647}
-  m_LocalScale: {x: 4.49, y: 4.49, z: 4.49}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1241407518, guid: bdbad25b3d32ad74e892ec3509246883, type: 3}
+  m_Sprite: {fileID: -1778875342, guid: 429a5a61b5cd8544faf45f6ea40b384a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4596612960240493296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024019858914383472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36eca78eaf48c4a4786b30b71e3e5ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToTransform: {fileID: 4024019858914383472}
+  turnDegreePerTurn: 90
+  totalTurnSecond: 3
+  ease: 15
