@@ -16,6 +16,7 @@ public class GameConditionChecker : MonoBehaviour
     [Header("UI Panels")]
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject questionMark;
 
     private RoundTracker roundTracker;
     private int turnsMaintainedWinConditions = 0;
@@ -61,7 +62,7 @@ public class GameConditionChecker : MonoBehaviour
         // Lose Conditions
         if(currentResources.Population >= losePopulationHigh
             || currentResources.Population <= losePopulationLow
-            || (currentResources.Water == 0 && currentResources.Food == 0 && currentResources.Mine == 0))
+            || (currentResources.Water == 0 && currentResources.Food == 0 && currentResources.Mine == 0) || roundTracker.GetCurrentBarrier()<0)
         {
             DisplayLosePanel();
         }
@@ -70,12 +71,14 @@ public class GameConditionChecker : MonoBehaviour
     private void DisplayWinPanel()
     {
         winPanel.SetActive(true);
+        questionMark.SetActive(false);
         // Additional logic for displaying the win panel if needed
     }
 
     private void DisplayLosePanel()
     {
         losePanel.SetActive(true);
+        questionMark.SetActive(false);
         // Additional logic for displaying the lose panel if needed
     }
 }

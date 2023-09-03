@@ -53,5 +53,11 @@ MonoBehaviour:
     Kadir: 10
   maxKadir: 10
   aliens:
-  - round: 3
+  - round: 5
     damage: 10
+  - round: 7
+    damage: 12
+  - round: 9
+    damage: 15
+  - round: 12
+    damage: 20
