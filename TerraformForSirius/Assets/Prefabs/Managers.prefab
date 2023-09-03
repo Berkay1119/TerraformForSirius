@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &269667373297948755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4843155940890491936}
+  - component: {fileID: 8879979515019224102}
+  m_Layer: 0
+  m_Name: GameConditionChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4843155940890491936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269667373297948755}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 863172550058529706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8879979515019224102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269667373297948755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc730eb5840314844babd3965774001f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPopulation: 1000
+  winPlanetHealthPercentage: 0.75
+  winResourceCount: 500
+  winTurnsCount: 5
+  losePopulationHigh: 1500
+  losePopulationLow: 0
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
 --- !u!1 &6866523351325951497
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +87,7 @@ Transform:
   - {fileID: 1920575932625134867}
   - {fileID: 2190255701969200074}
   - {fileID: 4682996138921160348}
+  - {fileID: 4843155940890491936}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &652943479482209094

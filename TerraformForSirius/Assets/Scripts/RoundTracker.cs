@@ -12,6 +12,9 @@ public class RoundTracker:MonoBehaviour
     [SerializeField] private List<AlienInfo> aliens;
     private int _roundCount=1;
 
+    private int maxPlanetHealth = 100; // Default value set to 100.
+
+
     private void OnEnable()
     {
         EventManager.ConsumeResource += ConsumeResources;
@@ -98,6 +101,16 @@ public class RoundTracker:MonoBehaviour
     private void OnBarrierIncreased(int x)
     {
         _barrier += x;
+    }
+
+     public int GetMaxPlanetHealth()
+    {
+        return maxPlanetHealth;
+    }
+
+    public Resources GetCurrentResources()
+    {
+        return currentResources;
     }
 }
 
