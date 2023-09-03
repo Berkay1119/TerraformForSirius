@@ -21,7 +21,7 @@ public class RoundTracker:MonoBehaviour
         EventManager.BarrierIncreased +=OnBarrierIncreased;
         _availableKadir = currentResources.Kadir;
         _availablePopulation = currentResources.Population;
-        
+        EventManager.BarrierHasBeenDamaged += OnBarrierDamaged;
     }
 
     private void Start()
@@ -46,6 +46,16 @@ public class RoundTracker:MonoBehaviour
         EventManager.AvailableKadirChanged -= AdjustAvailableKadir;
         EventManager.NextTurn -= OnTurnPassed;
         EventManager.BarrierIncreased -=OnBarrierIncreased;
+        EventManager.BarrierHasBeenDamaged -= OnBarrierDamaged;
+    }
+
+    private void OnBarrierDamaged(int x)
+    {
+        _barrier -= x;
+        if (_barrier<0)
+        {
+           EventManager.OnGameLost(); 
+        }
     }
 
     private void OnTurnPassed()
@@ -57,7 +67,7 @@ public class RoundTracker:MonoBehaviour
         {
             if (alienInfo.round==_roundCount)
             {
-                // EventManager.AlliensAreComing(alienInfo);
+                EventManager.AliensAreComing(alienInfo);
             }
         }
         _roundCount++;

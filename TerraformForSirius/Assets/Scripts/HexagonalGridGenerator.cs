@@ -40,6 +40,20 @@ public class HexagonalGridGenerator : MonoBehaviour
         Generate(0);
         Generate(1);
     }
+
+    public List<HexagonalGrid> GetEdgeTileList()
+    {
+        List<HexagonalGrid> list = new List<HexagonalGrid>();
+        foreach (var pair in _hexagonalCoordinatesMap)
+        {
+            //if (pair.Value.X==0 || pair.Value.X==columnCount-1)
+            if(pair.Key.GetPlacedCard()!=null)
+            {
+                list.Add(pair.Key);
+            }
+        }
+        return list;
+    }
 }
 
 

@@ -6,6 +6,7 @@ public class HexagonalGrid:MonoBehaviour
 {
     [ShowInInspector]private HexagonalCoordinates _assignedCoordinate;
     private SelectionManager _selectionManager;
+    private bool _isExplored;
     private HexagonalCard _placedCard;
 
     public void AssignCoordinate(HexagonalCoordinates coordinates)
@@ -35,5 +36,20 @@ public class HexagonalGrid:MonoBehaviour
     public void FulFillTheArea(HexagonalCard hexagonalCard)
     {
         _placedCard = hexagonalCard;
+    }
+
+    public HexagonalCard GetPlacedCard()
+    {
+        return _placedCard;
+    }
+
+    public HexagonalCoordinates GetCoordinate()
+    {
+        return _assignedCoordinate;
+    }
+
+    public bool IsExplored()
+    {
+        return _isExplored;
     }
 }
