@@ -97,7 +97,7 @@ public class HexagonalCard : MonoBehaviour
 
     public void Play(HexagonalGrid hexagonalGrid)
     {
-        transform.position = hexagonalGrid.transform.position;
+        transform.position = hexagonalGrid.transform.position+new Vector3(0,0,-0.5f);
         EventManager.OnConsumeResource(_constructionRequirement);
         _assignedGrid = hexagonalGrid;
         EventManager.OnCardPlayed(this);
