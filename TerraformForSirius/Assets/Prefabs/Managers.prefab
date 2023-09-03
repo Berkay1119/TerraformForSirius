@@ -139,8 +139,58 @@ Transform:
   - {fileID: 4682996138921160348}
   - {fileID: 4843155940890491936}
   - {fileID: 6560672314815603083}
+  - {fileID: 4894930179317358483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8996012181291979888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4894930179317358483}
+  - component: {fileID: 8386006770215424785}
+  m_Layer: 0
+  m_Name: ImagePanelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4894930179317358483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996012181291979888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 863172550058529706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8386006770215424785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996012181291979888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9889d4092861de5489016441a720366a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  displayImage: {fileID: 0}
+  panel: {fileID: 0}
+  closeButton: {fileID: 0}
+  nextButton: {fileID: 0}
 --- !u!1001 &652943479482209094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,6 +411,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863172550058529706}
     m_Modifications:
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: maxKadir
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Kadir
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 6201283320859748415, guid: 7544158a85f29be49abda358deed51b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

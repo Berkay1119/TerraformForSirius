@@ -70,15 +70,7 @@ public class HexagonalCard : MonoBehaviour
         EventManager.OnCardSelected(_selectionManager.GetSelectedCard() == this ? null : this);
     }
 
-    private void OnMouseOver()
-    {
-        FindObjectOfType<DisplaymentUI>().DisplayInfo(DisplayInfo());
-    }
-
-    private void OnMouseExit()
-    {
-        FindObjectOfType<DisplaymentUI>().DisplayInfo("");
-    }
+    
 
     public void AssignData(CardDataSO cardDataSo)
     {
