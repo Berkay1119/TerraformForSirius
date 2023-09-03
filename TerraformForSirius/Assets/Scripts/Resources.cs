@@ -72,7 +72,8 @@ public class Resources
         
         return true;
     }
-
+    
+    
     public void Multiply(int level)
     {
         Food *= level;

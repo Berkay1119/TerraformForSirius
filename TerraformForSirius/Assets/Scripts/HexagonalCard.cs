@@ -13,6 +13,10 @@ public class HexagonalCard : MonoBehaviour
     [ShowInInspector] private Resources _constructionRequirement;
     [ShowInInspector] private Resources _operationalRequirement;
     [ShowInInspector] private Resources _outcomeResources;
+    public List<CardTypes> typesToGiveBonus;
+    public List<CardTypes> typesToTakeBonus;
+    public List<CardTypes> typesToGiveNegative;
+    public List<CardTypes> typesToTakeNegative;
     [ShowInInspector] private int _startingBarrier;
     [ShowInInspector] private int barrierIncreasedPerRound;
     private HexagonalGrid _assignedGrid;
@@ -21,8 +25,9 @@ public class HexagonalCard : MonoBehaviour
     [SerializeField] private TileControlUI kadirAdjustmentControlUI;
     [SerializeField] private InGameCanvasScript canvas;
     [ShowInInspector] private int _level;
-
     private SelectionManager _selectionManager;
+    private CardTypes _cardType;
+    public int bonusCount;
     private void OnEnable()
     {
         EventManager.GenerateResources += GenerateOutCome;
@@ -65,6 +70,11 @@ public class HexagonalCard : MonoBehaviour
         this._operationalRequirement = new Resources(cardDataSo.OperationalRequirement);
         this._outcomeResources = new Resources(cardDataSo.OutcomeResources);
         this._startingBarrier = cardDataSo.startingBarrier;
+        typesToGiveBonus = cardDataSo.typesToGiveBonus;
+        typesToTakeBonus = cardDataSo.typesToTakeBonus;
+        typesToTakeNegative = cardDataSo.typesToTakeNegative;
+        typesToGiveNegative = cardDataSo.typesToGiveNegative;
+        _cardType = cardDataSo.cardType;
         _level = 1;
         spriteRenderer.sprite = _sprites[_level-1];
     }
@@ -80,13 +90,13 @@ public class HexagonalCard : MonoBehaviour
     {
         transform.position = hexagonalGrid.transform.position;
         EventManager.OnConsumeResource(_constructionRequirement);
+        _assignedGrid = hexagonalGrid;
         EventManager.OnCardPlayed(this);
         if (_startingBarrier!=0)
         {
             EventManager.OnBarrierIncreased(_startingBarrier);
         }
-        _assignedGrid = hexagonalGrid;
-
+        
     }
 
     private void GenerateOutCome(Resources currentResources)
@@ -106,9 +116,37 @@ public class HexagonalCard : MonoBehaviour
 
                 if (barrierIncreasedPerRound!=0)
                 {
-                    EventManager.OnBarrierIncreased(barrierIncreasedPerRound);
+                    if (_cardType==CardTypes.Protection)
+                    {
+                        EventManager.OnBarrierIncreased(barrierIncreasedPerRound+bonusCount);
+                    }
+                    else
+                    {
+                        EventManager.OnBarrierIncreased(barrierIncreasedPerRound);
+                    }
+                    
                 }
-                currentResources.Generate(_outcomeResources);
+
+                Resources resourcesToGenerate = new Resources(_outcomeResources);
+                switch (_cardType)
+                {
+                    case CardTypes.Mine:
+                        resourcesToGenerate.Mine += bonusCount;
+                        break;
+                    case CardTypes.Settlement:
+                        resourcesToGenerate.Population += bonusCount;
+                        break;
+                    case CardTypes.GreenHouse:
+                        resourcesToGenerate.Food += bonusCount;
+                        break;
+                    case CardTypes.WaterTank:
+                        resourcesToGenerate.Water += bonusCount;
+                        break;
+                    default:
+                        break;
+                }
+                
+                currentResources.Generate(resourcesToGenerate);
             }
         }
     }
@@ -126,5 +164,27 @@ public class HexagonalCard : MonoBehaviour
     public void AssignSelectionManager(SelectionManager selectionManager)
     {
         _selectionManager = selectionManager;
+    }
+
+    public CardTypes GetCardType()
+    {
+        return _cardType;
+    }
+
+    public HexagonalGrid GetAssignedGrid()
+    {
+        return _assignedGrid;
+    }
+
+
+
+    public List<CardTypes> GetTilesToGiveBonus()
+    {
+        return typesToGiveBonus;
+    }
+    
+    public List<CardTypes> GetTilesToTakeBonus()
+    {
+        return typesToTakeBonus;
     }
 }
