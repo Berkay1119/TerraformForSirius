@@ -97,6 +97,7 @@ public class HexagonalCard : MonoBehaviour
 
     public void Play(HexagonalGrid hexagonalGrid)
     {
+        GetComponent<CardHovering>().StopTweens();
         transform.position = hexagonalGrid.transform.position+new Vector3(0,0,-0.5f);
         EventManager.OnConsumeResource(_constructionRequirement);
         _assignedGrid = hexagonalGrid;
@@ -165,7 +166,7 @@ public class HexagonalCard : MonoBehaviour
         EventManager.OnResourceUpdated();
     }
 
-    private bool IsCardPlaced()
+    public bool IsCardPlaced()
     {
         return _assignedGrid != null;
     }

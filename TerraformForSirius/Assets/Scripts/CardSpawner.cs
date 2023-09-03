@@ -30,6 +30,7 @@ public class CardSpawner : MonoBehaviour
     {
         HexagonalCard newCard = cardGenerator.CreateCard(location.position);
         cardsInPlay[newCard] = location;
+        newCard.GetComponent<CardHovering>().StarSequence();
     }
 
     private void CardUsed(HexagonalCard usedCard)

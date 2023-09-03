@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 5140419181624861234}
   - component: {fileID: 5806125842557136360}
   - component: {fileID: 6406965313388456212}
+  - component: {fileID: 2733597703849436953}
   m_Layer: 0
   m_Name: HexagonalCard
   m_TagString: Untagged
@@ -901,6 +902,23 @@ PolygonCollider2D:
       - {x: 2.0478516, y: -3.7542276}
       - {x: 2.2298827, y: -3.458427}
   m_UseDelaunayMesh: 0
+--- !u!114 &2733597703849436953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842423360935354185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ae4f20c6703d04ba5a003f242bef5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 5806125842557136360}
+  jumpAmount: 0.3
+  jumpSpeed: 0.5
+  hoverScale: 1.2
+  hoverSpeed: 1
 --- !u!1 &7610602621675388085
 GameObject:
   m_ObjectHideFlags: 0
