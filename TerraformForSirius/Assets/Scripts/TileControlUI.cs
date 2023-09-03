@@ -44,6 +44,7 @@ public class TileControlUI : MonoBehaviour
             slider.value = 0;
         }
         _forcedToMoveSlide = false;
+        EventManager.OnResourceUpdated();
     }
 
     public void OnSliderMoved()
@@ -62,6 +63,7 @@ public class TileControlUI : MonoBehaviour
                 _forcedToMoveSlide = true;
                 slider.value = _previousSliderValue;
                 _forcedToMoveSlide = false;
+                EventManager.OnResourceUpdated();
                 return;
             }
         }
@@ -72,6 +74,7 @@ public class TileControlUI : MonoBehaviour
                 _forcedToMoveSlide = true;
                 slider.value = _previousSliderValue;
                 _forcedToMoveSlide = false;
+                EventManager.OnResourceUpdated();
                 return;
             }
         }
@@ -87,6 +90,7 @@ public class TileControlUI : MonoBehaviour
         }
 
         _previousSliderValue = (int) slider.value;
+        EventManager.OnResourceUpdated();
     }
 }
 

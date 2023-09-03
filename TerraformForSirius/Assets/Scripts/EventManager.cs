@@ -24,6 +24,7 @@ public static class EventManager
     public static event AlienEvent OnAlienInvasion;
     public static event IntEvent BarrierHasBeenDamaged;
     public static event Action GameLost;
+    public static event Action ResourceUpdated;
 
 
     public static void OnCardSelected(HexagonalCard x)
@@ -88,10 +89,17 @@ public static class EventManager
         GameLost?.Invoke();
     }
 
+    public static void OnResourceUpdated()
+    {
+        ResourceUpdated?.Invoke();
+    }
+
     public static void OnUpgrade(HexagonalCard card)
     {
         Upgrade?.Invoke(card);
     }
+
+
 }
 
 public enum SoundEffectTypes

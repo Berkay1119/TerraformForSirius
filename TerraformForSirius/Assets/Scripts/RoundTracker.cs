@@ -112,6 +112,16 @@ public class RoundTracker:MonoBehaviour
     {
         return currentResources;
     }
+
+    public float GetMaxKadir()
+    {
+        return maxKadir;
+    }
+
+    public int GetCurrentBarrier()
+    {
+        return _barrier;
+    }
 }
 
 [Serializable]

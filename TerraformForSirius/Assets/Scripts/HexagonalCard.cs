@@ -92,6 +92,7 @@ public class HexagonalCard : MonoBehaviour
         _level += 1;
         spriteRenderer.sprite = _sprites[_level-1];
         _outcomeResources.Multiply(_level);
+        EventManager.OnResourceUpdated();
     }
 
     public void Play(HexagonalGrid hexagonalGrid)
@@ -104,7 +105,7 @@ public class HexagonalCard : MonoBehaviour
         {
             EventManager.OnBarrierIncreased(_startingBarrier);
         }
-        
+        EventManager.OnResourceUpdated();
     }
 
     private void GenerateOutCome(Resources currentResources)
@@ -120,6 +121,10 @@ public class HexagonalCard : MonoBehaviour
                 if (_operationalRequirement.IsGreaterThan(currentResources))
                 {
                     return;
+                }
+                else
+                {
+                    currentResources.Consume(_operationalRequirement);
                 }
 
                 if (barrierIncreasedPerRound!=0)
@@ -157,6 +162,7 @@ public class HexagonalCard : MonoBehaviour
                 currentResources.Generate(resourcesToGenerate);
             }
         }
+        EventManager.OnResourceUpdated();
     }
 
     private bool IsCardPlaced()
