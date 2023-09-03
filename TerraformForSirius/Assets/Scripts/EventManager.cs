@@ -25,6 +25,7 @@ public static class EventManager
     public static event IntEvent BarrierHasBeenDamaged;
     public static event Action GameLost;
     public static event Action ResourceUpdated;
+    public static event Action CheckGameEnding;
 
 
     public static void OnCardSelected(HexagonalCard x)
@@ -82,6 +83,8 @@ public static class EventManager
     public static void OnBarrierHasBeenDamaged(int x)
     {
         BarrierHasBeenDamaged?.Invoke(x);
+        ResourceUpdated?.Invoke();
+        CheckGameEnding?.Invoke();
     }
 
     public static void OnGameLost()
@@ -100,6 +103,10 @@ public static class EventManager
     }
 
 
+    public static void OnCheckGameEnding()
+    {
+        CheckGameEnding?.Invoke();
+    }
 }
 
 public enum SoundEffectTypes

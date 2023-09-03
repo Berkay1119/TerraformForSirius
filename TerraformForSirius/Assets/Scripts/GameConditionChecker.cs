@@ -22,7 +22,7 @@ public class GameConditionChecker : MonoBehaviour
 
     private void Start()
     {
-        EventManager.NextTurn += CheckConditions;
+        EventManager.CheckGameEnding += CheckConditions;
         roundTracker = FindObjectOfType<RoundTracker>();
         winPanel.SetActive(false);
         losePanel.SetActive(false);
