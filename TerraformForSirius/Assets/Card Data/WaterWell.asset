@@ -13,24 +13,35 @@ MonoBehaviour:
   m_Name: WaterWell
   m_EditorClassIdentifier: 
   isProtector: 0
-  cardName: Water Well
-  sprite: {fileID: 21300000, guid: b1317e835a37b8d45a5655afb32d01be, type: 3}
+  cardType: 4
+  typesToGiveBonus: 
+  typesToTakeBonus: 
+  typesToGiveNegative: 
+  typesToTakeNegative: 
+  sprites:
+  - {fileID: 921565311, guid: fb7674f124b12694db71820b564b76b8, type: 3}
+  - {fileID: 41168129, guid: 42f4a796b8e43034d8e8f8385a1bb998, type: 3}
+  - {fileID: -1016205826, guid: 09cee7f68b9a1f64caa619666011d407, type: 3}
   ConstructionRequirement:
     Food: 2
     Water: 2
     Mine: 3
     Population: 0
     PlanetHealth: 0
+    Kadir: 0
   OperationalRequirement:
     Food: 2
     Water: 0
     Mine: 1
     Population: 0
     PlanetHealth: 0
+    Kadir: 0
   OutcomeResources:
     Food: 0
     Water: 5
     Mine: 0
     Population: 0
     PlanetHealth: 0
-  barrier: 0
+    Kadir: 0
+  startingBarrier: 0
+  perRoundBarrier: 0

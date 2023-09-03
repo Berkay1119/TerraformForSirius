@@ -150,14 +150,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 863172550058529706}
     m_Modifications:
     - target: {fileID: 1694625346969809975, guid: 335f7785b66710d4694401cb73b57f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5570241
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694625346969809975, guid: 335f7785b66710d4694401cb73b57f1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.56187445
-      objectReference: {fileID: 0}
-    - target: {fileID: 1694625346969809975, guid: 335f7785b66710d4694401cb73b57f1a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.060577393
       objectReference: {fileID: 0}
@@ -369,6 +361,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863172550058529706}
     m_Modifications:
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Food
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Mine
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Kadir
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Water
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.Population
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078178933959601357, guid: 7544158a85f29be49abda358deed51b3, type: 3}
+      propertyPath: currentResources.PlanetHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6201283320859748415, guid: 7544158a85f29be49abda358deed51b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

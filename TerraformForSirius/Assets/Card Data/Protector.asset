@@ -13,24 +13,35 @@ MonoBehaviour:
   m_Name: Protector
   m_EditorClassIdentifier: 
   isProtector: 1
-  cardName: Protector
-  sprite: {fileID: 21300000, guid: ea78fd38f8e5c5145978213c4e82950d, type: 3}
+  cardType: 3
+  typesToGiveBonus: 
+  typesToTakeBonus: 
+  typesToGiveNegative: 
+  typesToTakeNegative: 
+  sprites:
+  - {fileID: 2128743073, guid: fb7674f124b12694db71820b564b76b8, type: 3}
+  - {fileID: -1305335252, guid: 42f4a796b8e43034d8e8f8385a1bb998, type: 3}
+  - {fileID: -387480627, guid: 09cee7f68b9a1f64caa619666011d407, type: 3}
   ConstructionRequirement:
     Food: 2
     Water: 2
     Mine: 3
     Population: 0
     PlanetHealth: 0
+    Kadir: 0
   OperationalRequirement:
     Food: 1
     Water: 1
     Mine: 0
     Population: 5
     PlanetHealth: 0
+    Kadir: 0
   OutcomeResources:
     Food: 0
     Water: 0
     Mine: 0
     Population: 0
     PlanetHealth: 0
-  barrier: 3
+    Kadir: 0
+  startingBarrier: 0
+  perRoundBarrier: 0
