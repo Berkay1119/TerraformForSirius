@@ -23,6 +23,7 @@ public static class EventManager
     public static event AlienEvent OnAlienInvasion;
     public static event IntEvent BarrierHasBeenDamaged;
     public static event Action GameLost;
+    public static event Action ResourceUpdated;
 
 
     public static void OnCardSelected(HexagonalCard x)
@@ -85,6 +86,11 @@ public static class EventManager
     public static void OnGameLost()
     {
         GameLost?.Invoke();
+    }
+
+    public static void OnResourceUpdated()
+    {
+        ResourceUpdated?.Invoke();
     }
 }
 
