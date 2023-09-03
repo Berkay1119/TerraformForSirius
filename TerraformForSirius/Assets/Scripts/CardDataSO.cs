@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,7 +10,7 @@ public class CardDataSO:ScriptableObject
 {
     public bool isProtector;
     public string cardName;
-    public Sprite sprite;
+    public List<Sprite> sprites;
     public Resources ConstructionRequirement;
     public Resources OperationalRequirement;
     public Resources OutcomeResources;

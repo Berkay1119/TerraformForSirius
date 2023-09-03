@@ -38,4 +38,9 @@ public class SelectionManager : MonoBehaviour
     {
         return roundTracker.AreConditionsSufficient(_selectedCard.GetResources());
     }
+
+    public HexagonalCard GetSelectedCard()
+    {
+        return _selectedCard;
+    }
 }

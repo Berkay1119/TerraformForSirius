@@ -14,23 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isProtector: 0
   cardName: Mine
-  sprite: {fileID: 21300000, guid: da059c361d742014d861002c5c492c7f, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: da059c361d742014d861002c5c492c7f, type: 3}
+  - {fileID: 21300000, guid: da059c361d742014d861002c5c492c7f, type: 3}
   ConstructionRequirement:
     Food: 5
     Water: 5
     Mine: 0
     Population: 0
     PlanetHealth: 0
+    Kadir: 0
   OperationalRequirement:
     Food: 2
     Water: 2
     Mine: 0
     Population: 5
     PlanetHealth: 0
+    Kadir: 0
   OutcomeResources:
     Food: 0
     Water: 0
     Mine: 5
     Population: 1
     PlanetHealth: -2
-  barrier: 0
+    Kadir: 0
+  startingBarrier: 0
+  perRoundBarrier: 0

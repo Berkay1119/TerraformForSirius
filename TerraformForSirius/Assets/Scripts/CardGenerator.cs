@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CardGenerator : MonoBehaviour
 {
     [SerializeField] private List<CardDataSO> _cardData = new List<CardDataSO>();
     [SerializeField] private GameObject cardPrefab;
+
+    [SerializeField] private SelectionManager selectionManager;
     
     //Testing Purposes
     [SerializeField] private Transform createdCardTransform;
@@ -28,6 +31,7 @@ public class CardGenerator : MonoBehaviour
         HexagonalCard hexagonalCard = Instantiate(cardPrefab).GetComponent<HexagonalCard>();
         hexagonalCard.AssignData(GetRandomCardData());
         hexagonalCard.transform.position = atPosition;
+        hexagonalCard.AssignSelectionManager(selectionManager);
         return hexagonalCard;
     }
 }

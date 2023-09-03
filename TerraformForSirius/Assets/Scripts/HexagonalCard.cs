@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class HexagonalCard : MonoBehaviour
 {
     [ShowInInspector] private string _name;
-    [ShowInInspector] private Sprite _sprite;
+    [ShowInInspector] private List<Sprite> _sprites;
     [ShowInInspector] private Resources _constructionRequirement;
     [ShowInInspector] private Resources _operationalRequirement;
     [ShowInInspector] private Resources _outcomeResources;
@@ -20,6 +20,9 @@ public class HexagonalCard : MonoBehaviour
     [SerializeField] private TileControlUI populationAdjustmentControlUI;
     [SerializeField] private TileControlUI kadirAdjustmentControlUI;
     [SerializeField] private InGameCanvasScript canvas;
+    [ShowInInspector] private int _level;
+
+    private SelectionManager _selectionManager;
     private void OnEnable()
     {
         EventManager.GenerateResources += GenerateOutCome;
@@ -34,6 +37,16 @@ public class HexagonalCard : MonoBehaviour
     {
         if (IsCardPlaced())
         {
+            if (_selectionManager.AreThereAnySelectedCard())
+            {
+                if (_selectionManager.GetSelectedCard()._name==_name)
+                {
+                    Upgrade();
+                    Destroy(_selectionManager.GetSelectedCard());
+                    return;
+                }    
+            }
+            
             if (canvas.IsPointerOverGameObject())
             {
                 return;
@@ -47,12 +60,20 @@ public class HexagonalCard : MonoBehaviour
     public void AssignData(CardDataSO cardDataSo)
     {
         this._name = cardDataSo.name;
-        this._sprite = cardDataSo.sprite;
-        this._constructionRequirement = cardDataSo.ConstructionRequirement;
-        this._operationalRequirement = cardDataSo.OperationalRequirement;
-        this._outcomeResources = cardDataSo.OutcomeResources;
+        this._sprites = cardDataSo.sprites;
+        this._constructionRequirement = new Resources(cardDataSo.ConstructionRequirement);
+        this._operationalRequirement = new Resources(cardDataSo.OperationalRequirement);
+        this._outcomeResources = new Resources(cardDataSo.OutcomeResources);
         this._startingBarrier = cardDataSo.startingBarrier;
-        spriteRenderer.sprite = _sprite;
+        _level = 1;
+        spriteRenderer.sprite = _sprites[_level-1];
+    }
+
+    private void Upgrade()
+    {
+        _level = 2;
+        spriteRenderer.sprite = _sprites[_level-1];
+        _outcomeResources.Multiply(_level);
     }
 
     public void Play(HexagonalGrid hexagonalGrid)
@@ -100,5 +121,10 @@ public class HexagonalCard : MonoBehaviour
     public Resources GetResources()
     {
         return _constructionRequirement;
+    }
+
+    public void AssignSelectionManager(SelectionManager selectionManager)
+    {
+        _selectionManager = selectionManager;
     }
 }

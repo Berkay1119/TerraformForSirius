@@ -11,6 +11,16 @@ public class Resources
     public int PlanetHealth;
     public float Kadir;
 
+    public Resources(Resources resources)
+    {
+        Food = resources.Food;
+        Water = resources.Water;
+        Mine = resources.Mine;
+        Population = resources.Population;
+        PlanetHealth = resources.PlanetHealth;
+        Kadir = resources.Kadir;
+    }
+
     public void Consume(Resources resources)
     {
         Food -= resources.Food;
@@ -61,5 +71,14 @@ public class Resources
         //}
         
         return true;
+    }
+
+    public void Multiply(int level)
+    {
+        Food *= level;
+        Mine *= level;
+        Water *= level;
+        Population *= level;
+        PlanetHealth *= level;
     }
 }
