@@ -25,6 +25,7 @@ public class HexagonalCard : MonoBehaviour
     [SerializeField] private TileControlUI kadirAdjustmentControlUI;
     [SerializeField] private InGameCanvasScript canvas;
     [ShowInInspector] private int _level;
+    
     private SelectionManager _selectionManager;
     private CardTypes _cardType;
     public int bonusCount;
@@ -50,8 +51,10 @@ public class HexagonalCard : MonoBehaviour
                     {
                         return;
                     }
+                    _selectionManager.SetSelectedCard(null);
                     Upgrade();
-                    Destroy(_selectionManager.GetSelectedCard());
+                    Destroy(_selectionManager.GetSelectedCard().gameObject);
+                    EventManager.OnUpgrade(_selectionManager.GetSelectedCard());
                     return;
                 }    
             }
@@ -63,7 +66,8 @@ public class HexagonalCard : MonoBehaviour
             canvas.gameObject.SetActive(!canvas.gameObject.activeInHierarchy);
             return;    
         }
-        EventManager.OnCardSelected(this);
+
+        EventManager.OnCardSelected(_selectionManager.GetSelectedCard() == this ? null : this);
     }
 
     public void AssignData(CardDataSO cardDataSo)

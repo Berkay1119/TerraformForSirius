@@ -43,4 +43,9 @@ public class SelectionManager : MonoBehaviour
     {
         return _selectedCard;
     }
+
+    public void SetSelectedCard(HexagonalCard card)
+    {
+        //throw new NotImplementedException();
+    }
 }

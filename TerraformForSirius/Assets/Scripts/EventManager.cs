@@ -18,6 +18,7 @@ public static class EventManager
     public static event ResourceEvent GenerateResources;
     public static event ResourceEvent AdjustTileControlUI;
     public static event Action NextTurn;
+    public static event CardEvent Upgrade;
     public static event SoundEffectEvent SoundEffect;
     public static event IntEvent BarrierIncreased;
     public static event AlienEvent OnAlienInvasion;
@@ -85,6 +86,11 @@ public static class EventManager
     public static void OnGameLost()
     {
         GameLost?.Invoke();
+    }
+
+    public static void OnUpgrade(HexagonalCard card)
+    {
+        Upgrade?.Invoke(card);
     }
 }
 
