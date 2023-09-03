@@ -13,7 +13,8 @@ public class HexagonalCard : MonoBehaviour
     [ShowInInspector] private Resources _constructionRequirement;
     [ShowInInspector] private Resources _operationalRequirement;
     [ShowInInspector] private Resources _outcomeResources;
-    [ShowInInspector] private int _barrier;
+    [ShowInInspector] private int _startingBarrier;
+    [ShowInInspector] private int barrierIncreasedPerRound;
     private HexagonalGrid _assignedGrid;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private TileControlUI populationAdjustmentControlUI;
@@ -50,7 +51,7 @@ public class HexagonalCard : MonoBehaviour
         this._constructionRequirement = cardDataSo.ConstructionRequirement;
         this._operationalRequirement = cardDataSo.OperationalRequirement;
         this._outcomeResources = cardDataSo.OutcomeResources;
-        this._barrier = cardDataSo.barrier;
+        this._startingBarrier = cardDataSo.startingBarrier;
         spriteRenderer.sprite = _sprite;
     }
 
@@ -59,6 +60,10 @@ public class HexagonalCard : MonoBehaviour
         transform.position = hexagonalGrid.transform.position;
         EventManager.OnConsumeResource(_constructionRequirement);
         EventManager.OnCardPlayed(this);
+        if (_startingBarrier!=0)
+        {
+            EventManager.OnBarrierIncreased(_startingBarrier);
+        }
         _assignedGrid = hexagonalGrid;
 
     }
@@ -76,6 +81,11 @@ public class HexagonalCard : MonoBehaviour
                 if (_operationalRequirement.IsGreaterThan(currentResources))
                 {
                     return;
+                }
+
+                if (barrierIncreasedPerRound!=0)
+                {
+                    EventManager.OnBarrierIncreased(barrierIncreasedPerRound);
                 }
                 currentResources.Generate(_outcomeResources);
             }

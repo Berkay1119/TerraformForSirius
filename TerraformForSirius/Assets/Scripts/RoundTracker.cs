@@ -8,7 +8,9 @@ public class RoundTracker:MonoBehaviour
     [SerializeField] private float maxKadir;
     [ShowInInspector] private int _availablePopulation;
     [ShowInInspector] private float _availableKadir;
-    private int _roundCount;
+    [ShowInInspector] private int _barrier;
+    [SerializeField] private List<AlienInfo> aliens;
+    private int _roundCount=1;
 
     private void OnEnable()
     {
@@ -16,6 +18,7 @@ public class RoundTracker:MonoBehaviour
         EventManager.AvailablePopulationChanged += AdjustAvailablePopulation;
         EventManager.AvailableKadirChanged += AdjustAvailableKadir;
         EventManager.NextTurn += OnTurnPassed;
+        EventManager.BarrierIncreased +=OnBarrierIncreased;
         _availableKadir = currentResources.Kadir;
         _availablePopulation = currentResources.Population;
         
@@ -42,6 +45,7 @@ public class RoundTracker:MonoBehaviour
         EventManager.AvailablePopulationChanged -= AdjustAvailablePopulation;
         EventManager.AvailableKadirChanged -= AdjustAvailableKadir;
         EventManager.NextTurn -= OnTurnPassed;
+        EventManager.BarrierIncreased -=OnBarrierIncreased;
     }
 
     private void OnTurnPassed()
@@ -49,6 +53,14 @@ public class RoundTracker:MonoBehaviour
         EventManager.OnGenerateResources(currentResources);
         _availableKadir = maxKadir;
         _availablePopulation = currentResources.Population;
+        foreach (var alienInfo in aliens)
+        {
+            if (alienInfo.round==_roundCount)
+            {
+                EventManager.AlliensAreComing(alienInfo);
+            }
+        }
+        _roundCount++;
         EventManager.OnAdjustTileControlUI(currentResources);
     }
 
@@ -72,4 +84,16 @@ public class RoundTracker:MonoBehaviour
     {
         return _availableKadir;
     }
+
+    private void OnBarrierIncreased(int x)
+    {
+        _barrier += x;
+    }
+}
+
+[Serializable]
+public class AlienInfo
+{
+    public int round;
+    public int damage;
 }

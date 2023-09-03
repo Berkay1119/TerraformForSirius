@@ -13,5 +13,6 @@ public class CardDataSO:ScriptableObject
     public Resources ConstructionRequirement;
     public Resources OperationalRequirement;
     public Resources OutcomeResources;
-    [ShowIf("isProtector")] public int barrier=0;
+    [ShowIf("isProtector")] public int startingBarrier=0;
+    [ShowIf("isProtector")] public int perRoundBarrier;
 }
