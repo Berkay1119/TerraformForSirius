@@ -22,14 +22,25 @@ public class HexagonalGridGenerator : MonoBehaviour
     private Dictionary<HexagonalCoordinates, HexagonalGrid> _hexagonalCoordinatesMapReverse =
         new Dictionary<HexagonalCoordinates, HexagonalGrid>();
     
-    List<Tuple<int, int>> adjacentCoordinateDifferences = new List<Tuple<int, int>>
+    List<Tuple<int, int>> adjacentCoordinateDifferencesEven = new List<Tuple<int, int>>
     {
-        new(0,-1),
-        new(0,1),
-        new(1,-1),
-        new(1,0),
-        new(-1,-1),
-        new (-1,0)
+        new (1, 0),
+        new (0, 1),
+        new (-1, -1),
+        new (-1, 0),
+        new (0, -1),
+        new (1, -1)
+            
+    };
+    
+    List<Tuple<int, int>> adjacentCoordinateDifferencesOdd = new List<Tuple<int, int>>
+    {
+        new (-1, 0),
+        new (0, -1),
+        new (1, 0),
+        new (1, 1),
+        new (0, 1),
+        new (-1, 1)
             
     };
 
@@ -45,6 +56,10 @@ public class HexagonalGridGenerator : MonoBehaviour
         
         HexagonalCoordinates currentCoordinates=_hexagonalCoordinatesMap[x.GetAssignedGrid()];
 
+        List<Tuple<int, int>> adjacentCoordinateDifferences = currentCoordinates.X % 2 == 0
+            ? adjacentCoordinateDifferencesEven
+            : adjacentCoordinateDifferencesOdd;
+        
         foreach (var tuple in adjacentCoordinateDifferences)
         {
             foreach (var pair in _hexagonalCoordinatesMapReverse)
@@ -127,6 +142,10 @@ public class HexagonalGridGenerator : MonoBehaviour
         
         HexagonalCoordinates currentCoordinates=_hexagonalCoordinatesMap[hexagonalCard.GetAssignedGrid()];
 
+        
+        List<Tuple<int, int>> adjacentCoordinateDifferences = currentCoordinates.X % 2 == 0
+            ? adjacentCoordinateDifferencesEven
+            : adjacentCoordinateDifferencesOdd;
         foreach (var tuple in adjacentCoordinateDifferences)
         {
             foreach (var pair in _hexagonalCoordinatesMapReverse)
