@@ -20,7 +20,9 @@ public static class EventManager
     public static event Action NextTurn;
     public static event SoundEffectEvent SoundEffect;
     public static event IntEvent BarrierIncreased;
-   public static event AlienEvent OnAlienInvasion;
+    public static event AlienEvent OnAlienInvasion;
+    public static event IntEvent BarrierHasBeenDamaged;
+    public static event Action GameLost;
 
 
     public static void OnCardSelected(HexagonalCard x)
@@ -73,6 +75,16 @@ public static class EventManager
     public static void AliensAreComing(AlienInfo alienInfo)
     {
         OnAlienInvasion?.Invoke(alienInfo);
+    }
+
+    public static void OnBarrierHasBeenDamaged(int x)
+    {
+        BarrierHasBeenDamaged?.Invoke(x);
+    }
+
+    public static void OnGameLost()
+    {
+        GameLost?.Invoke();
     }
 }
 
