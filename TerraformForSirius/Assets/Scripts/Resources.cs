@@ -73,7 +73,6 @@ public class Resources
         return true;
     }
     
-    
     public void Multiply(int level)
     {
         Food *= level;
@@ -81,5 +80,11 @@ public class Resources
         Water *= level;
         Population *= level;
         PlanetHealth *= level;
+    }
+
+    public override string ToString()
+    {
+        return "Food:" + Food + "," + "Mine:" + Mine + "," + "Water:" + Water + "," + "Population:" + Population + "," +
+               "Planet Health:" + PlanetHealth;
     }
 }

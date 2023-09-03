@@ -70,6 +70,16 @@ public class HexagonalCard : MonoBehaviour
         EventManager.OnCardSelected(_selectionManager.GetSelectedCard() == this ? null : this);
     }
 
+    private void OnMouseOver()
+    {
+        FindObjectOfType<DisplaymentUI>().DisplayInfo(DisplayInfo());
+    }
+
+    private void OnMouseExit()
+    {
+        FindObjectOfType<DisplaymentUI>().DisplayInfo("");
+    }
+
     public void AssignData(CardDataSO cardDataSo)
     {
         this._name = cardDataSo.name;
@@ -93,6 +103,18 @@ public class HexagonalCard : MonoBehaviour
         spriteRenderer.sprite = _sprites[_level-1];
         _outcomeResources.Multiply(_level);
         EventManager.OnResourceUpdated();
+    }
+    
+    private string DisplayInfo()
+    {
+        string str = "CONSTRUCTION REQUIREMENT\n" +
+                     _constructionRequirement.ToString() +"\n"+
+                     "OPERATIONAL REQUIREMENT\n" +
+                     _operationalRequirement.ToString() +"\n"+
+                     "OUTCOME\n" +
+                     _outcomeResources +"\n"+ "STARTING BARRIER:" + _startingBarrier +"\n"+ "BARRIER PER ROUND:" +
+                     barrierIncreasedPerRound;
+        return str;
     }
 
     public void Play(HexagonalGrid hexagonalGrid)
