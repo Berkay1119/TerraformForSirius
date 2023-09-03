@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameConditionChecker : MonoBehaviour
@@ -21,9 +22,15 @@ public class GameConditionChecker : MonoBehaviour
 
     private void Start()
     {
+        EventManager.NextTurn += CheckConditions;
         roundTracker = FindObjectOfType<RoundTracker>();
         winPanel.SetActive(false);
         losePanel.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.NextTurn -= CheckConditions;
     }
 
     public void CheckConditions()
