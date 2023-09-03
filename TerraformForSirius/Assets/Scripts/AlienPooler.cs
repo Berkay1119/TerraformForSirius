@@ -31,7 +31,7 @@ public class AlienPooler : MonoBehaviour
     {
         for (int i = 0; i < poolCount; i++)
         {
-            GameObject alien = Instantiate(alienPrefab);
+            GameObject alien = Instantiate(alienPrefab,transform);
             alienList.Add(alien);
             alien.SetActive(false);
         }

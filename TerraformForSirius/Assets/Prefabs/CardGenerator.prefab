@@ -46,5 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardData:
   - {fileID: 11400000, guid: 6ae7ad48c404b6443980d2cf7538fb32, type: 2}
+  - {fileID: 11400000, guid: b48e5b54c77464e4aa64ddc1304f0dff, type: 2}
+  - {fileID: 11400000, guid: 66837abbd9cff6044aeea4b44cdf0ab9, type: 2}
+  - {fileID: 11400000, guid: 29798d04efa86044fa94c86846a08053, type: 2}
+  - {fileID: 11400000, guid: 8f8d1adabf7548844bf903475dd675cc, type: 2}
   cardPrefab: {fileID: 6842423360935354185, guid: 6bbf08d36b3b5c54e855f627bcb8b497, type: 3}
+  selectionManager: {fileID: 0}
   createdCardTransform: {fileID: 8975658094816108553}

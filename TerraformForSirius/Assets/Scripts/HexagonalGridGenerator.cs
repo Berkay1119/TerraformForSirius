@@ -87,7 +87,12 @@ public class HexagonalGridGenerator : MonoBehaviour
         EventManager.CardPlayed -= ExploreAdjacentGrids;
     }
 
-    [Button]
+
+    private void Start()
+    {
+        GenerateGrids();
+    }
+    
     private void GenerateGrids()
     {
         void Generate(int startingColumnNumber)
@@ -97,8 +102,8 @@ public class HexagonalGridGenerator : MonoBehaviour
             {
                 for (int j = 0; j < rowCount; j++)
                 {
-                    HexagonalGrid currentGrid = Instantiate(hexagonalGridPrefab).GetComponent<HexagonalGrid>();
-                    Vector3 startingLocation = startingColumnNumber == 1 ? new Vector3(1.5f, -Mathf.Sqrt(3) / 2, 0) : Vector3.zero;
+                    HexagonalGrid currentGrid = Instantiate(hexagonalGridPrefab,transform).GetComponent<HexagonalGrid>();
+                    Vector3 startingLocation = startingColumnNumber == 1 ? transform.position+new Vector3(1.5f, -Mathf.Sqrt(3) / 2, 0) : transform.position+Vector3.zero;
                     currentGrid.transform.position = startingLocation + new Vector3((i/2)*outerCircleRadius*3f,-j*outerCircleRadius*Mathf.Sqrt(3), 0);
                     HexagonalCoordinates currentCoordinate = new HexagonalCoordinates(i, j);
                     _hexagonalCoordinatesMap.Add(currentGrid,currentCoordinate);

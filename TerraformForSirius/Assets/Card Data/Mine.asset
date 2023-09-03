@@ -19,7 +19,9 @@ MonoBehaviour:
   typesToGiveNegative: 
   typesToTakeNegative: 
   sprites:
-  - {fileID: 916764041, guid: fb7674f124b12694db71820b564b76b8, type: 3}
+  - {fileID: 68520916, guid: fb7674f124b12694db71820b564b76b8, type: 3}
+  - {fileID: 650188834, guid: 42f4a796b8e43034d8e8f8385a1bb998, type: 3}
+  - {fileID: -1032068180, guid: 09cee7f68b9a1f64caa619666011d407, type: 3}
   ConstructionRequirement:
     Food: 5
     Water: 5
